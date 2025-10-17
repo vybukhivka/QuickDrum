@@ -10,9 +10,7 @@ export const createKickSynth = () => {
     volume: -14,
   });
 
-  const noise = new Tone.Noise({ type: 'pink', volume: -32 });
-
-  const bitCrusher = new Tone.BitCrusher(state.track1.param4 * 0.16);
+  const noise = new Tone.Noise({ type: 'pink', volume: -48 });
 
   const amplitudeEnvelope = new Tone.AmplitudeEnvelope({
     attack: 0.005,
@@ -27,7 +25,7 @@ export const createKickSynth = () => {
     sustain: 0,
     release: 0.01,
     baseFrequency: state.track1.param1,
-    octaves: 2,
+    octaves: 3.5,
   });
 
   const filter = new Tone.Filter({
@@ -40,8 +38,7 @@ export const createKickSynth = () => {
   oscillator1.connect(filter);
   noise.connect(filter);
   filter.connect(amplitudeEnvelope);
-  amplitudeEnvelope.connect(bitCrusher);
-  bitCrusher.toDestination();
+  amplitudeEnvelope.toDestination();
 
   oscillator1.start();
   noise.start();
@@ -70,8 +67,8 @@ export const createKickSynth = () => {
     pitchEnvelope.release = time;
   };
 
-  const setBitReduction = (bits: number) => {
-    bitCrusher.bits.value = bits;
+  const setPitchEnvDepth = (depth: number) => {
+    pitchEnvelope.octaves = depth;
   };
 
   const dispose = () => {
@@ -86,10 +83,10 @@ export const createKickSynth = () => {
 
   return {
     trigger,
-    setBitReduction,
     setPitchEnv,
     setDecay,
     setFrequencer,
+    setPitchEnvDepth,
     dispose,
   };
 };

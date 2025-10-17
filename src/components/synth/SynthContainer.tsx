@@ -8,7 +8,6 @@ import ModTab from './Tabs/Mod/ModTab';
 import SeqTab from './Tabs/Seq/SeqTab';
 import SequencerContainer from './Sequencer/SequencerContainer';
 import { SynthTabs } from '../../types/synthTabs';
-import { audioEngine } from '../../audio/audioEngine';
 
 const SynthContainer: React.FC = () => {
   const [activeTab, setActiveTab] = useState<SynthTabs>('main');

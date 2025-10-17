@@ -8,19 +8,19 @@ const useTrackParams = (trackId: keyof TrackState) => {
     if (trackId === 'track1') {
       switch (paramName) {
         case 'param1':
-          audioEngine.kickSynth.setFrequencer(value * 4);
+          audioEngine.kickSynth.setFrequencer(Math.round(value * 0.5) + 20);
           break;
 
         case 'param2':
-          audioEngine.kickSynth.setDecay(value * 0.06);
+          audioEngine.kickSynth.setDecay(value * 0.05 + 0.01);
           break;
 
         case 'param3':
-          audioEngine.kickSynth.setPitchEnv(value * 0.03);
+          audioEngine.kickSynth.setPitchEnvDepth(value * 0.07);
           break;
 
         case 'param4':
-          audioEngine.kickSynth.setBitReduction(value * 0.16);
+          audioEngine.kickSynth.setPitchEnv(value * 0.005 + 0.001);
           break;
 
         default:
