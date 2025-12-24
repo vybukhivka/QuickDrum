@@ -2,11 +2,11 @@ import * as Tone from 'tone';
 import store from '../store/store';
 
 export const createKickSynth = () => {
-  const state = store.getState().tracks;
+	const baseFreq = 400;
 
   const oscillator1 = new Tone.Oscillator({
     type: 'sine',
-    frequency: state.track1.param1,
+    frequency: baseFreq,
     volume: -14,
   });
 
@@ -14,9 +14,9 @@ export const createKickSynth = () => {
 
   const amplitudeEnvelope = new Tone.AmplitudeEnvelope({
     attack: 0.005,
-    decay: state.track1.param1,
+    decay: 0.1,
     sustain: 0,
-    release: state.track1.param1,
+    release: 0.1,
   });
 
   const pitchEnvelope = new Tone.FrequencyEnvelope({
@@ -24,7 +24,7 @@ export const createKickSynth = () => {
     decay: 0.01,
     sustain: 0,
     release: 0.01,
-    baseFrequency: state.track1.param1,
+    baseFrequency: baseFreq,
     octaves: 3.5,
   });
 
