@@ -6,7 +6,7 @@ function NavBar() {
     <nav className="flex h-32 items-center justify-between text-slate-400">
       <div>
         <NavLink to={'/'}>
-          <span className="text-lg font-bold text-slate-50">React Synth</span>
+          <span className="text-lg font-bold text-slate-50">QiuckDrum</span>
         </NavLink>
       </div>
       <div className="flex justify-between space-x-8 text-lg">

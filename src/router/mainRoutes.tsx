@@ -13,7 +13,7 @@ const mainRoutes: RouteObject[] = [
   {
     element: <MainLayout />,
     children: [
-      { path: '/', element: <Home />, errorElement: <ErrorBoundary /> },
+      { path: '/', element: <SynthContainer />, errorElement: <ErrorBoundary /> },
       { path: '/about', element: <About />, errorElement: <ErrorBoundary /> },
       {
         path: '/explore',
@@ -24,11 +24,6 @@ const mainRoutes: RouteObject[] = [
         path: '/contact',
         element: <Contact />,
         errorElement: <ErrorBoundary />,
-      },
-      {
-        path: '/synth',
-        element: <SynthContainer />,
-        children: [{ path: ':patternId', element: <SynthContainer /> }],
       },
     ],
   },
